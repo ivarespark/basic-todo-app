@@ -2,8 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.BasicTODOApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+        <item name="colorPrimary">@color/background_app</item>
+        <item name="colorPrimaryVariant">@color/background_app</item>
+        <item name="colorOnPrimary">@color/background_app</item>
+        <item name="colorSecondary">@color/background_app</item>
+        <item name="colorSecondaryVariant">@color/background_app</item>
+        <item name="colorOnSecondary">@color/background_app</item>
 
-    <style name="Theme.BasicTODOApp" parent="Base.Theme.BasicTODOApp" />
+    </style>
 </resources>
