@@ -3,4 +3,9 @@
     <string name="title_app">TO DO App</string>
     <string name="categories">Categorias</string>
     <string name="tasks">Tareas</string>
+    <string name="dialog_add_task">Añade la tarea</string>
+    <string name="category_business">Negocios</string>
+    <string name="category_personal">Personal</string>
+    <string name="category_others">Otros</string>
+    <string name="dialog_create_task">Crear</string>
 </resources>

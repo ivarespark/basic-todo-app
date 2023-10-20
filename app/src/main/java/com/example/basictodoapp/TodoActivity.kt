@@ -1,7 +1,12 @@
 package com.example.basictodoapp
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basictodoapp.TaskCategory.*
@@ -54,8 +59,37 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        fabAddTask.setOnClickListener{
+        fabAddTask.setOnClickListener{ showDialog() }
+    }
 
+    private fun showDialog() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_task)
+
+        val btnAddTask:Button = dialog.findViewById(R.id.btnAddtask)
+        val etTask:EditText = dialog.findViewById(R.id.etTask)
+        val rgCategories:RadioGroup = dialog.findViewById(R.id.rgCategories)
+
+        btnAddTask.setOnClickListener {
+            val currentTask = etTask.text.toString()
+            if (currentTask.isNotEmpty()){
+                val selectedId = rgCategories.checkedRadioButtonId
+                val selectedRadioButton:RadioButton = rgCategories.findViewById(selectedId)
+                val currentCategory:TaskCategory = when(selectedRadioButton.text){
+                    getString(R.string.category_business) -> Business
+                    getString(R.string.category_personal) -> Personal
+                    else -> Other
+                }
+
+                tasks.add(Task(etTask.text.toString(), currentCategory))
+                updateTasks()
+                dialog.hide()
+            }
         }
+        dialog.show()
+    }
+
+    private fun updateTasks() {
+        tasksAdapter.notifyDataSetChanged()
     }
 }

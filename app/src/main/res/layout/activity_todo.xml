@@ -6,64 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".TodoActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app"
-    android:orientation="vertical"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/title_app"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        style="@style/TodoSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/categories" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCategories"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:background="@color/background_app"
+        android:orientation="vertical">
 
-    <TextView
-        style="@style/TodoSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/tasks" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/title_app"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTasks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"/>
+        <TextView
+            style="@style/TodoSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categories" />
 
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/TodoSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/tasks" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/accent"
-        android:src = "@android:drawable/ic_input_add"
-        app:tint="@color/white"
-        app:fabSize="normal"
-        android:layout_margin="32dp"
         android:layout_gravity="end|bottom"
-        />
+        android:layout_margin="32dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/accent"
+        app:fabSize="normal"
+        app:tint="@color/white" />
 
 </FrameLayout>
