@@ -47,7 +47,7 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        categoriesAdapter = CategoriesAdapter(categories)
+        categoriesAdapter = CategoriesAdapter(categories) {position -> updateCategories(position)} // funcion lambda
         rvCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
@@ -90,11 +90,21 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun onItemSelected(position:Int){
-        tasks[position].isSelected = !tasks[position].isSelected
+        tasksAdapter.tasks[position].isSelected = !tasksAdapter.tasks[position].isSelected
+        updateTasks()
+    }
+
+    private fun updateCategories(position: Int){
+        categories[position].isSelected = !categories[position].isSelected
+        categoriesAdapter.notifyItemChanged(position)
         updateTasks()
     }
 
     private fun updateTasks() {
+        // en selectedCategories va a contener solo las categorias que estan seleccionadas
+        val selectedCategories : List<TaskCategory> = categories.filter { it.isSelected }
+        val newtasks = tasks.filter { selectedCategories.contains(it.category) }
+        tasksAdapter.tasks = newtasks
         tasksAdapter.notifyDataSetChanged()
     }
 }
